@@ -2,6 +2,7 @@
  Movies-Information-Database is a wide database of information consisting of IMDB movies, their rating, the streaming services those movies are listed in, Oscar awards of the movies, personal information about the actors | directors | writers of the movies, tags given to the movies by users and the genome scores of those tags along with a table to join IMDB ID’s with TMBD ID’s so that user will be able to use this database with other databases by connecting them
  
 Description about tables:
+
 IMDB_Movies: This is a table consists of data which includes almost all the movies listed in IMDB with columns 
 •	‘imdb_title_id’ – auto incrementing unique identifier used to identify the movies.
 •	‘movie_team_id’ - column referenced from ‘movie_team’ table to get the information about movie_team of each movie.
