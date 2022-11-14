@@ -82,3 +82,18 @@ Tag: This table contains information about the tags assigned to the movie by the
 •	‘user_id’ – unique identifier used to identify the user.
 •	‘movie_id’ - movie identifier referenced from ‘link’ table.
 •	‘tag’ – name of the tag given to the movie by the user.
+
+
+
+
+################################################################################################################
+
+
+Settingup the database :
+
+We used  PGSQL as our DBMS . but any DBMS works fine on this data 
+
+load the  
+
+
+
