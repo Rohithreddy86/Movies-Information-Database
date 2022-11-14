@@ -93,7 +93,16 @@ Settingup the database :
 
 We used  PGSQL as our DBMS . but any DBMS works fine on this data 
 
-load the  
+load/restore the  backup.sql file on restore.sql file that is present in the scripts folder.
+
+There is an ER diagram for Refernce to know how the data works;
+
+
+Sample queries and results will be posted soon !! 
+
+CHEERS 
+
+
 
 
 
