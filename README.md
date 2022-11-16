@@ -5,7 +5,6 @@ Description about tables:
 
 IMDB_Movies: This is a table consists of data which includes almost all the movies listed in IMDB with columns 
 •	‘imdb_title_id’ – auto incrementing unique identifier used to identify the movies.
-•	‘movie_team_id’ - column referenced from ‘movie_team’ table to get the information about movie_team of each movie.
 •	‘title’ – title of the movie
 •	‘year’ – year of the movie release
 •	‘genre’ – comma separated values of genres of the movie
@@ -13,7 +12,6 @@ IMDB_Movies: This is a table consists of data which includes almost all the movi
 •	‘country’ – comma separated values of movie origin country
 •	‘language’ – comma separated values of languages the movie made in 
 •	‘Description’ – description about movie
-•	‘streaming_id’ - referenced from ‘Streaming’.
 •	‘production_company’ – Name of the production company.
 •	‘budget’ – Budget allocated for each movie.
 •	‘director’ – Director name of the movie, can join with ‘person_details’ and get details about director.
@@ -22,28 +20,15 @@ IMDB_Movies: This is a table consists of data which includes almost all the movi
 •	‘rating’ – Average of the totalvotes.
 •	‘total_votes’ – total count of votes.
 
-Streaming: This table consists of IMDB_MOVIES which are available in streaming services if any.
-Columns:
-•	‘title’ – title of the movie
-•	‘type’ – Type of content (movie/TV show)
-•	‘streaming_in’ – Services the movie is streaming in.
-•	‘streaming_id’ - unique identifier used to identify the movies streaming in services.
+
 
 Netflix: This table consists of all the movies and TV Shows listed in Netflix
 •	‘show_id’ – Auto incrementing unique identifier used to identify each movie/Tv show listed in Netflix.
 •	‘type’ – Type of the content (Movie/TV Show).
-•	‘title’ – Title of the Movie/TV Show.
-•	‘director’ – Director name of the Movie/TV Show.
-•	‘Cast’ – Cast of the Movie/TV Show.
-•	‘country’ – comma separated values of movie origin country
 •	‘date_added’ – Date the movie/tv show added to Netflix.
-•	‘release_year’ – Movie/Tv show release year.
 •	‘sensor_rating’ – sensor rating of the movie/Tv show.
-•	‘duration’ – Duration of movie/TV show.
-•	‘genres’ – The movie/TV show listed category.
-•	‘description’ – Desription about movie/TV show.
 
-Listed_in: Lists the movies of ‘Netflix’ which are listed in ‘imdb_movies’ table.
+Listed_in: Lists the movies of ‘Netflix’ which are listed in ‘imdb_movies’ table. As there is no link between imdb_movies and Netflix, we can only link them using this table which maps each ‘show_id’ to its respective ‘imdb_title_id’ if there exists a corresponding movie of Netflix in Imdb_movies data.
 •	‘listed_in_id’ – unique identifier to identify each listing.
 •	‘imdb_title_id’ – referenced from ‘imdb_movies’ table.
 •	‘show_id’ – referenced from ‘Netflix’ table
@@ -61,24 +46,34 @@ Oscar_awards:  This table contains information about Oscar awards given to the f
 •	‘category’ – the nomination category of the movie.
 •	‘gender’ – gender of the individual nominated.
 •	‘name’ – name of the individual nominated
-•	‘winner’ – T (if nomination won)  or F (if nomination lost)
+•	‘winner’ – T (if nomination won) or F (if nomination lost)
+•	‘imdb_title_id’ – referenced from ‘imdb_movies’ table.
 
-Link: the table which links the imdb_movies with ratings and movies from other sites like ‘tmbd’.
+
+Reviews:  This table consists of the information about reviews given to the movie by the reviewers.
+•	‘imdb_title_id’ – referenced from ‘imdb_movies’ table.
+•	‘review_id’ – unique identifier to identify each review given by the reviewr.
+•	‘reviewer_name' – name of the reviewer.
+•	‘review_date’ – date of the review.
+•	‘review’ – review content.
+
+Imdb_tmdb_connector: the table which links the imdb_movies with ratings and movies from other sites like ‘tmbd’.
 •	‘movie_id’ – unique identifier for a movie from other site.
 •	‘imdb_id’ – imdb unique movie identifier.
 •	‘tmbd_id’ – tmbd unique movie identifier.
 
-Genome_scores: This table contains the information about tag scores of each unique tag given to a movie.
-•	‘gs_id’ - unique identifier used to identify each entry of the table.
+Movie_tag_scores: This table contains the information about tag scores of each unique tag given to a movie.
+•	‘movie_tag_id’ - unique identifier used to identify each entry of the table.
 •	‘movie_id’ – movie identifier referenced from ‘link’ table.
 •	‘tag’ – tag given to the movie by the user.
 •	‘tag_score’ – score given to the tag assigned to the movie based on its relevance with the movie.
-Genome_tags: This table contains information about tag and their id’s.
+
+Tag: This table contains information about tag and their id’s.
 •	‘tag_id’ – unique identifier of the tag.
 •	‘tag’ – name of the tag.
 
-Tag: This table contains information about the tags assigned to the movie by the users.
-•	‘t_id’ - unique identifier used to identify each entry of the table.
+User_tag: This table contains information about the tags assigned to the movie by the users.
+•	‘user_tag_id’ - unique identifier used to identify each entry of the table.
 •	‘user_id’ – unique identifier used to identify the user.
 •	‘movie_id’ - movie identifier referenced from ‘link’ table.
 •	‘tag’ – name of the tag given to the movie by the user.
