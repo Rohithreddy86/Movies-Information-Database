@@ -77,3 +77,17 @@ User_tag: This table contains information about the tags assigned to the movie b
 •	‘user_id’ – unique identifier used to identify the user.
 •	‘movie_id’ - movie identifier referenced from ‘link’ table.
 •	‘tag’ – name of the tag given to the movie by the user.
+
+################################################################################################################
+
+Settingup the database :
+
+We used PGSQL as our DBMS . but any DBMS works fine on this data
+
+load/restore the backup.sql file on restore.sql file that is present in the scripts folder.
+
+There is an ER diagram for Refernce to know how the data works;
+
+Sample queries and results will be posted soon !!
+
+CHEERS
