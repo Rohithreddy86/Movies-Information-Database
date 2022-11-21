@@ -6,3 +6,5 @@ where im.imdb_title_id = r.imdb_title_id
 and im.budget > '$50,000' and im.imdb_title_id = oa.imdb_title_id and oa.winner = true
 group by im.title, im.production_house
 order by count(review_id) desc
+
+sample script
